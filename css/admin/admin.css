@@ -1,0 +1,127 @@
+#selectedIds-form , #selectedItems{
+    margin: 0;
+}
+
+.search-form span.required{
+	display: none;
+}
+
+.add-cat, .delete-cat, .views-cat,.edit-cat,.add-rigths{
+	display: none;
+}
+
+.jqtree-element:hover .add-cat, .jqtree-element:hover .delete-cat, .jqtree-element:hover .edit-cat,.jqtree-element:hover .add-rigths, .jqtree-element:hover .views-cat{
+	display: inline;
+}
+
+#ui-datepicker-div{
+	z-index: 1000 !important;
+}
+
+.not-menu-active{
+	margin-left: 31px;
+    position: relative;
+}
+
+.not-menu{
+	position: relative;
+    top: -12px;
+}
+
+.module-grid td a.update[href=hide]{
+	display: none;
+}
+
+#form-sizes.form-horizontal .control-label{
+	width: 80px !important;
+}
+
+#form-sizes.form-horizontal .controls {
+    margin-left: 105px !important;
+}
+.thumbnail[src="/images/catalog/sliders/small/"],.thumbnail[src="/images/catalog/sliders_back/small/"],.thumbnail[src="/images/slider/small/"],.thumbnail[src="/images/slider/sliders_back/small/"]{
+	display: none;
+}
+.file_upload {
+    display: inline-block;
+    min-height: 18px;
+    overflow: hidden;
+    position: relative;
+    width: auto;
+}
+.file_upload > input[type="file"] {
+    cursor: pointer;
+    font-size: 200px;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+}
+.file_upload:hover .btn-light-blue {
+	background-color: #1dc0ca; border-color: #1dc0ca; color: #ffffff;
+}
+.row-file .preview {
+    border-radius: 3px;
+    /*height: 95px;
+	width: 285px;*/
+    overflow: hidden;
+    position: relative;
+}
+.preview_container .preview {
+    display: inline-block;
+    margin-right: 10px;
+    margin-top: 5px;
+    position: relative;
+	min-height: 35px;
+}
+.preview_container .preview .panel {
+    background: none repeat scroll 0 0 #f1f3f6;
+    opacity: 0.5;
+    padding: 3px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+	border: 1px solid #a7a7a7;
+}
+.preview_container .preview .panel:hover {
+    opacity: 1;
+}
+.preview_container .preview .panel a {
+    display: block;
+    float: left;
+    margin: 0 3px;
+}
+.preview_container .preview .panel a:hover {
+    opacity: 0.5;
+}
+.preview_container .preview .panel > .delete {
+    background-image: url("/images/delete_garbage.png");
+    height: 16px;
+    width: 16px;
+}
+.progress {
+    background: none repeat scroll 0 0 #dfdfe7;
+    display: none;
+    height: auto;
+    margin-bottom: 10px;
+    text-align: center;
+    /*width: 300px;*/
+}
+.progress_bar > .bar {
+    background: none repeat scroll 0 0 #666;
+    height: 5px;
+    width: 0;
+}
+.preview_container .preview img{
+	width: 100%;
+}
+.icon-move{
+	cursor: move;
+}
+
+.preview_container_files .preview{
+	min-width: 98px;
+}
+.preview_container.preview_container_files .preview .panel{
+	top: 0;
+}

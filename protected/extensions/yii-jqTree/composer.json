@@ -1,0 +1,13 @@
+{
+    "name": "lamerw/yii-jqtree",
+    "description": "alternative JS tree for yii framework, with drag-n-drop.",
+    "keywords": ["tree","jquery","yii"],
+    "type": "yii-extension",
+    "license": "BSD-2-Clause",
+    "authors": [
+        {
+            "name": "Artem lamerw",
+            "email": "bel-azar@ya.ru"
+        }
+    ]
+}
