@@ -9,10 +9,15 @@
 
 	<link rel="stylesheet" href="/css/own.css">
 	<link rel="stylesheet" href="/css/style.css">
+	<link title="Лента RSS" type="application/rss+xml" rel="alternate" href="<?=Yii::app()->getBaseUrl(true);?>/feed"/>
+	<link href="/img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 <!--	<script type="text/javascript" src="/js/script.js"></script>
 	<script type="text/javascript" src="/js/my.js"></script>-->
 
 <?
+$cs = Yii::app()->clientScript;
+$cs->registerCoreScript('jquery');
+//$cs->registerCoreScript('jquery');
 /*$cs = Yii::app()->clientScript;
 $cs->coreScriptPosition=CClientScript::POS_END;
 Yii::app()->clientScript->scriptMap['jquery.min.js'] = false;
@@ -151,7 +156,7 @@ Yii::app()->clientScript->scriptMap['jquery.js'] = false;*/
 			<!-- PAGE CONTENT -->
 			<main class="col-wide main">
 				<div id="ajaxSearch_output" style="display: none;"></div>
-				
+
 				<?php echo $content; ?>
 			</main>
 			<!-- / PAGE CONTENT -->
@@ -192,7 +197,7 @@ Yii::app()->clientScript->scriptMap['jquery.js'] = false;*/
 					<span class="page-footer__links--right">
 						<a href="#" class="page-footer__link">Вебмастерам</a>
 						<span class="page-footer__link--white">| &copy; РАСХИ 2003-2014 |</span>
-						<a href="#" class="page-footer__link">Лента RSS</a>
+						<a href="/feed" class="page-footer__link">Лента RSS</a>
 					</span>
 
 				</div>

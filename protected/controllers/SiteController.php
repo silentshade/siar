@@ -20,22 +20,19 @@ class SiteController extends Controller
 	}
 
 	public function actionTest(){
-		Yii::import('news.install.InstallHelper');
-		Yii::import('admin.models.AdminModules');
-		$ih=new InstallHelper();
-		$module=AdminModules::model()->findByAttributes(array('module'=>'news','state'=>1));
-		if(!$module){
-			$ih->install();
-			echo 'install';
-		}else{
-			$ih->uninstall();
-			echo 'uninstall';
-		}
-
-		//$ih->regenerateImages();
-		//echo 'regenerate';
-		Yii::app()->end();
+		echo $this->toDateFormat('192142800','dateOnly');
 	}
+
+	function toDateFormat($timestamp = 0, $mode = '') {
+        $timestamp = trim($timestamp);
+        if($mode !== 'formatOnly' && empty($timestamp)) return '-';
+        $timestamp = intval($timestamp);
+        $dateFormat = '%d-%m-%Y';
+
+        $strTime = strftime($dateFormat, $timestamp);
+
+        return $strTime;
+    }
 
 	/**
 	 * This is the action to handle external exceptions.
@@ -100,6 +97,4 @@ class SiteController extends Controller
 		}
 		$this->redirect('/contacts');
 	}
-
-
 }

@@ -18,7 +18,6 @@ class MainController extends FrontController
 
 		$criteria=new CDbCriteria(array(
 			'condition'=>'t.published=1',
-			'join'=>'left join journal on journal.id left join journal as articles1 on articles1.id left join journal as articles2 on articles2.id',
 			'order'=>'t.id desc'
 		));
 

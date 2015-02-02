@@ -467,3 +467,6 @@
 	font-size: 12px;
 	margin-bottom: 12px;
 }
+.magazines-row__m-text {
+    margin: 0 2px !important;
+}
