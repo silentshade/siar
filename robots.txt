@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /remind/
+Disallow: /request-an-account/

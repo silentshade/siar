@@ -2,7 +2,7 @@
 	'dataProvider'=>$model->search(),
 	'filter' => $model,
 	'columns'=>array(
-		array('name'=>'images','type'=>'raw','value'=>'"<a href=/admin/admin_users/update?id=".$data->id."><img style=max-width:50px; src=/images/admin_users/admin/".SiteHelper::returnOneImages($data->images)."?m=".$data->modified." /></a>"','htmlOptions'=>array('style'=>'max-width:50px;width:50px;'),'filter'=>false),
+		//array('name'=>'images','type'=>'raw','value'=>'"<a href=/admin/admin_users/update?id=".$data->id."><img style=max-width:50px; src=/images/admin_users/admin/".SiteHelper::returnOneImages($data->images)."?m=".$data->modified." /></a>"','htmlOptions'=>array('style'=>'max-width:50px;width:50px;'),'filter'=>false),
 		array('name'=>'login','type'=>'raw'),
 		array('name'=>'email','type'=>'raw'),
 		array('name'=>'name','header'=>'ФИО','type'=>'raw','value'=>'CHtml::link(CHtml::encode($data->name), array("update", "id"=>$data->id))','htmlOptions'=>array('style'=>'width:340px;')),

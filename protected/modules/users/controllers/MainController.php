@@ -91,42 +91,77 @@ class MainController extends FrontController
 
 	public function actionRemind() {
 		if(Yii::app()->user->isGuest){
-			$model=new Users('remind');
+			$form_model=new RemindForm();
 
-			if(isset($_POST['Users']['email'])){
-				$email=$_POST['Users']['email'];
+			if(isset($_POST['RemindForm']['username'])){
+				$form_model->username=$_POST['RemindForm']['username'];
+				if($form_model->validate()){
+					$user=User::model()->find(array('condition'=>'email=:email OR login=:login', 'params'=>array(':login'=>$form_model->username, ':email'=>$form_model->username)));
+					if($user){
+						$hash = md5(mktime().uniqid());
 
-				$model->email=$email;
+						UserRemind::model()->deleteAllByAttributes(array('user'=>$user->id));
 
-				$user=Users::model()->findByAttributes(array('email'=>$email));
-				if($user && !empty($email)){
-					$hash = md5(mktime().uniqid());
+						$user_remind=new UserRemind();
+						$user_remind->hash=$hash;
+						$user_remind->user=$user->id;
+						if($user_remind->save()){
+							$title="Восстановление пароля";
+							$text = 'Здравствуйте!<br><br>
+							Вы, или кто-то другой запросили восстановление пароля на сайте '.Yii::app()->request->getBaseUrl(true).'.<br>
+							Если это действительно сделали вы, то для смены пароля перейдите по ссылке:<br><a href="'.Yii::app()->request->getBaseUrl(true).'/users/reminder?h='.$hash.'">'.Yii::app()->request->getBaseUrl(true).'/users/reminder?h='.$hash.'</a><br><br><br>
+							Если вы не запрашивали восстановление пароля или кто-то случайно указал твой e-mail адрес, то просто удалите это письмо.';
 
-					UserRemind::model()->deleteAllByAttributes(array('user'=>$user->id));
-
-					$user_remind=new UserRemind();
-					$user_remind->hash=$hash;
-					$user_remind->user=$user->id;
-					if($user_remind->save()){
-						$title="Восстановление пароля на сайте RSS для Kindle";
-						$text = 'Здравствуйте!<br><br>
-						Вы, или кто-то другой запросили восстановление пароля на сайте '.Yii::app()->request->getBaseUrl(true).'.<br>
-						Если это действительно сделали вы, то для смены пароля перейдите по ссылке:<br><a href="'.Yii::app()->request->getBaseUrl(true).'/user/reminder?h='.$hash.'">'.Yii::app()->request->getBaseUrl(true).'/user/reminder?h='.$hash.'</a><br><br><br>
-						Если вы не запрашивали восстановление пароля или кто-то случайно указал твой e-mail адрес, то просто удалите это письмо.';
-
-						SiteHelper::mail_with_body($user->email, $title, $text,$user->id);
+							SiteHelper::mail_with_body(
+								$user->email,
+								$title,
+								'remind',
+								array(
+									'text'=>$text
+								),
+								'main',
+								'application.modules.users.views.email'
+							);
+						}
+						Yii::app()->user->setFlash('success','Проверьте ваш email');
+						$this->redirect('/');
+					}else{
+						$form_model->addError('username', 'Email или логин не найден');
 					}
-					Yii::app()->user->setFlash('success','Проверьте ваш email');
-					$this->redirect('/login');
-				}else{
-					$model->addError('email', 'Email не найден');
 				}
 			}else{
-				$this->render('remind',array('model'=>$model));
+				$this->render('/remind',array('model'=>$form_model));
 			}
 		}else{
 			$this->redirect('/');
 		}
+	}
+
+	public function actionReminder(){
+		if(isset($_GET['h'])){
+			$user_remind=UserRemind::model()->findByAttributes(array('hash'=>$_GET['h']));
+			if($user_remind){
+				$password=uniqid();
+				$model=User::model()->findByPk($user_remind->user);
+				$model->password=$model->hashPassword($password);
+				if($model->save(false)){
+					$title="Вы запросили смену пароля";
+					$text = 'Здравствуйте, '.$model->firstname.' '.$model->midname.'<br><br>
+					Ваши данные для авторизации на РАСХИ:<br><br>
+					Имя пользователя: '.$model->login.'<br>
+					Пароль: '.$password.'<br><br>
+					После успешной авторизации на РАСХИ (<a href="'.Yii::app()->request->getBaseUrl(true).'">'.Yii::app()->request->getBaseUrl(true).'</a>), вы сможете изменить свой пароль.<br><br>
+					С уважением, Администрация';
+
+					SiteHelper::mail_with_body($model->email, $title, 'registration',array('text'=>$text,'id'=>$model->id),'main','application.modules.users.views.email');
+
+					Yii::app()->user->setFlash('success','Вы успешно восстановили пароль. Проверьте почту');
+					$this->redirect('/');
+				}
+			}else
+				$this->redirect('/');
+		}else
+			$this->redirect('/');
 	}
 
 	public function loadModel($id)

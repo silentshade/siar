@@ -45,6 +45,14 @@ CREATE TABLE `user` (
   `blocked` tinyint(1) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;")->execute();
+		Yii::app()->db->createCommand("DROP TABLE IF EXISTS `user_remind`;
+CREATE TABLE `user_remind` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `hash` varchar(255) DEFAULT NULL,
+  `user` int(11) DEFAULT NULL,
+  `created` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;")->execute();
 
 		$config=new Config();
 		$config->module=$this->module;
@@ -68,6 +76,7 @@ CREATE TABLE `user` (
 
 	protected function downSql(){
 		Yii::app()->db->createCommand()->dropTable('users');
+		Yii::app()->db->createCommand()->dropTable('user_remind');
 		Config::model()->deleteAllByAttributes(array('module'=>$this->module));
 		AdminImagesSizes::model()->deleteAllByAttributes(array('module'=>$this->module));
 	}

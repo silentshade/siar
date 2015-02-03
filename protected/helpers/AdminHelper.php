@@ -216,4 +216,15 @@ class AdminHelper {
 			}
 		}
     }
+
+	public static function getUsersEmails(){
+		Yii::import('users.models.User');
+		$users=User::model()->findAll(array('condition'=>'blocked=0'));
+		if($users){
+			foreach ($users as $user) {
+				$emails[]=$user->email;
+			}
+		}
+		return $emails ? implode(',', $emails) : '';
+	}
 }

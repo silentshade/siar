@@ -116,7 +116,7 @@ Yii::app()->clientScript->scriptMap['jquery.js'] = false;*/
 								</div>
 
 								<div class="page-header__pass-recover"> <!-- Recover password link -->
-									<a href="#" class="link-dark-bg link-dark-bg--lh12">Забыли пароль?</a>
+									<a href="/remind" class="link-dark-bg link-dark-bg--lh12">Забыли пароль?</a>
 								</div>
 							</div>
 						<? else: ?>
@@ -212,10 +212,10 @@ Yii::app()->clientScript->scriptMap['jquery.js'] = false;*/
 	//<![CDATA[
 	advSearch = 'oneword';
 	subSearch = 5;
-	ucfg = ' &extract=`0:content` &AS_landing=`8` &AS_showResults=`0` &filter=`pagetitle,Инфекции в хирургии,8|pagetitle,Президент,8|pagetitle,Ученый секретарь,8|pagetitle,Вице-президент,8` &tplLayout=`Searchform` &showMoreResults=`1` &moreResultsPage=`8` &addJscript=`0`';
 	//]]>
 	</script>
 	<script src="/js/ajaxSearch.js"></script>
 	<!-- / JavaScript -->
+	<?=Yii::app()->params['google_analitika'];?>
 </body>
 </html>

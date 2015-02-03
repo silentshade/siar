@@ -22,7 +22,7 @@
 
 	<? echo $form->hiddenField($model,'id'); ?>
 	<input type="hidden" id="Model_id" value="<?=($model->id ? $model->id : '');?>">
-	<? $this->renderPartial('admin.views.layouts.blocks.jqfileupload',array('form'=>$form, 'model'=>$model, 'field'=>'images', 'module_sizes'=>true, 'path'=>'admin/', 'many'=>true)); ?>
+	<? //$this->renderPartial('admin.views.layouts.blocks.jqfileupload',array('form'=>$form, 'model'=>$model, 'field'=>'images', 'module_sizes'=>true, 'path'=>'admin/', 'many'=>true)); ?>
 
 	<? $this->endClip(); ?>
 

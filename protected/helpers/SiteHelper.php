@@ -404,7 +404,25 @@ class SiteHelper
     {
         $mailer = Yii::createComponent('application.extensions.mailer.EMailer');
 		$mailer->IsHTML(true);
-		$mailer->From = Yii::app()->params['noreplyEmail'];
+
+
+		/*if(Yii::app()->params['smtp_on']){
+			$mailer->IsSMTP();
+			$mailer->SMTPDebug = false;
+			$mailer->SMTPAuth = true;
+			if(Yii::app()->params['smtp_port']==465)
+				$mailer->SMTPSecure = "ssl";
+			$mailer->Port = Yii::app()->params['smtp_port'];
+			$mailer->Host = Yii::app()->params['smtp_host'];
+			$mailer->Username = Yii::app()->params['smtp_user'];//Yii::app()->params['adminEmail'];
+			$mailer->Password = Yii::app()->params['smtp_password'];
+			$mailer->From = Yii::app()->params['smtp_user'];//Yii::app()->params['adminEmail'];
+		}else*/
+			$mailer->From = Yii::app()->params['noreplyEmail'];
+
+
+
+
 		$mailer->FromName = Yii::app()->params['fromName'];
 
 		$mailer->AddReplyTo(Yii::app()->params['noreplyEmail'],Yii::app()->params['noreplyEmail']);

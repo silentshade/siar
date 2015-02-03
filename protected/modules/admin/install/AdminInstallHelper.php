@@ -99,16 +99,6 @@ class AdminInstallHelper extends MainInstallHelper {
 	  ) ENGINE=MyISAM DEFAULT CHARSET=utf8;")->execute();
 
 		$config=new Config();
-		$config->section='Главные';
-		$config->module='';
-		$config->param='siteheart';
-		$config->value='';
-		$config->default='';
-		$config->label='Код чата siteheart';
-		$config->type='text';
-		$config->save();
-
-		$config=new Config();
 		$config->section='Почта';
 		$config->module='';
 		$config->param='noreplyEmail';
@@ -126,36 +116,6 @@ class AdminInstallHelper extends MainInstallHelper {
 		$config->default='';
 		$config->label='Имя при отправке почты с сайта';
 		$config->type='text';
-		$config->save();
-
-		$config=new Config();
-		$config->section='Соцсети';
-		$config->module='';
-		$config->param='twitter_link';
-		$config->value='#';
-		$config->default='';
-		$config->label='Ссылка на twitter';
-		$config->type='string';
-		$config->save();
-
-		$config=new Config();
-		$config->section='Соцсети';
-		$config->module='';
-		$config->param='facebook_link';
-		$config->value='#';
-		$config->default='';
-		$config->label='Ссылка на facebook';
-		$config->type='string';
-		$config->save();
-
-		$config=new Config();
-		$config->section='Соцсети';
-		$config->module='';
-		$config->param='youtube_link';
-		$config->value='#';
-		$config->default='';
-		$config->label='Ссылка на youtube';
-		$config->type='string';
 		$config->save();
 
 		$config=new Config();

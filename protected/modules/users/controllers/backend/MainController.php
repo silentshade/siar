@@ -37,7 +37,7 @@ class MainController extends CrudAdminModuleController
 			if(!empty($_POST['User']['password']) && $_POST['User']['password']==$_POST['User']['repeat_password'] && $model->validate()){
 				if ($model->save()){
 					//$model->saveRights();
-					Yii::app()->user->setFlash('message','Пароль пользователя "'.$model->email.($model->name ? ' - '.$model->name : '').'" был успешно изменен');
+					Yii::app()->user->setFlash('message','Пользователь "'.$model->email.'" добавлен');
 				}
 			} else
 				$model->addError('password', 'Пароли не совпадают');
@@ -76,7 +76,7 @@ class MainController extends CrudAdminModuleController
 					$model->password=$model->hashPassword($_POST['User']['repeat_password']);
 					if ($model->save()){
 						//$model->saveRights();
-						Yii::app()->user->setFlash('message','Пароль пользователя "'.$model->email.($model->name ? ' - '.$model->name : '').'" был успешно изменен');
+						Yii::app()->user->setFlash('message','Пароль пользователя "'.$model->email.'" был успешно изменен');
 					}
 				} else{
 					$model->addError('password', 'Пароли не совпадают');

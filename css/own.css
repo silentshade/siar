@@ -470,3 +470,6 @@
 .magazines-row__m-text {
     margin: 0 2px !important;
 }
+.page-content.error{
+	border: none !important;
+}

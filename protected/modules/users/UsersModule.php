@@ -24,6 +24,8 @@ class UsersModule extends Module
             'request-an-account'=>'users/main/registration',
             'profile'=>'users/profile/index',
             'logout'=>'users/profile/logout',
+            'remind'=>'users/main/remind',
+            'users/reminder'=>'users/main/reminder',
         );
     }
 }

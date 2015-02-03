@@ -1,4 +1,4 @@
-<h1>Поиск</h1>
+<h1>Рассылки</h1>
 
 <?php $this->widget('MGridView',array(
 	'dataProvider'=>$model->search(),
@@ -9,6 +9,13 @@
 			'type'=>'raw',
 			'value'=>'CHtml::encode($data->name)',
 			'htmlOptions'=>array('class'=>'')
+		),
+		array(
+			'name' => 'sented',
+			'type'=>'raw',
+			'value'=>'$data->sented==1 ? "Отправлена" : "Не отправлена"',
+			'htmlOptions'=>array('style'=>'width:140px;'),
+			'filter'=>SiteHelper::$yes_no,
 		),
 		array(
 			'name'=>'created',
@@ -25,7 +32,7 @@
 		array(
 			'header' => '<span rel=tooltip title="Действие"></span>',
 			'class'=>'EButtonColumnWithClearFilters',
-			'template' => '{delete}',
+			'template' => '{update} {delete}',
 			'htmlOptions'=>array('style'=>'text-align:center;')
 		)
 	)

@@ -36,7 +36,7 @@ require_once(dirname(__FILE__).DIRECTORY_SEPARATOR.'phpmailer'.DIRECTORY_SEPARAT
  * @see http://phpmailer.codeworxtech.com/index.php?pg=phpmailer
  *
  * @author MetaYii
- * @package application.extensions.emailer 
+ * @package application.extensions.emailer
  * @since 1.0
  */
 class EMailer
@@ -200,7 +200,7 @@ class EMailer
    //***************************************************************************
 
    /**
-    * Displays an e-mail in preview mode. 
+    * Displays an e-mail in preview mode.
     *
     * @param string $view the class
     * @param array $vars
@@ -208,12 +208,24 @@ class EMailer
     */
    public function getView($view, $vars = array(), $layout = null)
    {
-      $body = Yii::app()->controller->renderPartial($this->pathViews.'.'.$view, array_merge($vars, array('content'=>$this->_myMailer)), true);
-      if ($layout === null) {
-         $this->_myMailer->Body = $body;
-      }
-      else {
-         $this->_myMailer->Body = Yii::app()->controller->renderPartial($this->pathLayouts.'.'.$layout, array('content'=>$body), true);
-      }
+       if(isset(Yii::app()->controller)){
+			$controller = Yii::app()->controller;
+			$body = Yii::app()->controller->renderPartial($this->pathViews.'.'.$view, array_merge($vars, array('content'=>$this->_myMailer)), true);
+			if ($layout === null) {
+			   $this->_myMailer->Body = $body;
+			}
+			else {
+			   $this->_myMailer->Body = Yii::app()->controller->renderPartial($this->pathLayouts.'.'.$layout, array('content'=>$body), true);
+			}
+	  }else{
+			$controller = new CController('YiiMail');
+			$body = $controller->renderInternal(Yii::getPathOfAlias($this->pathViews).'/'.$view.'.php', array_merge($vars, array('content'=>$this->_myMailer)), true);
+			if ($layout === null) {
+			   $this->_myMailer->Body = $body;
+			}
+			else {
+			   $this->_myMailer->Body = $controller->renderInternal(Yii::getPathOfAlias($this->pathLayouts).'/'.$layout.'.php', array('content'=>$body), true);
+			}
+	  }
    }
 }
