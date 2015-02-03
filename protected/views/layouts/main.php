@@ -163,15 +163,13 @@ Yii::app()->clientScript->scriptMap['jquery.js'] = false;*/
 
 			<!-- SIDEBAR -->
 			<aside class="page-aside col-narrow">
-
-				<? $this->widget('conferences.widgets.LastConfWidget', array('limit'=>Yii::app()->params['conferences_count_left_block'])); ?>
-
 				<? if(!Yii::app()->user->isGuest): ?>
-				<div class="send-thesises">
-					<a title="Отправка тезисов" href="/thesises">Отправка тезисов</a>
+				<div class="as-send-tesis"> <!-- send tesises -->
+					<a href="/thesises" class="as-send-tesis__btn">Отправить тезисы</a>
 				</div>
 				<? endif; ?>
 
+				<? $this->widget('conferences.widgets.LastConfWidget', array('limit'=>Yii::app()->params['conferences_count_left_block'])); ?>
 				<? $this->widget('banners.widgets.BannersWidget', array('limit'=>20, 'place'=>0)); ?>
 			</aside>
 			<!-- / SIDEBAR -->
