@@ -98,6 +98,9 @@
 			</div>
 		</label>
 
+
+		<input id="phone_text" class="forms__input" type="text" name="phone" maxlength="100">
+
 		<input type="submit" class="forms__submit" value="Отправить">
 
 	<?php $this->endWidget(); ?>

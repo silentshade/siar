@@ -34,6 +34,10 @@ class MainController extends FrontController
     {
 		Yii::import('users.models.User');
 
+		if(!empty($_POST['phone'])){
+			$this->redirect('/');
+		}
+
         if(!Yii::app()->user->isGuest){
 			$this->redirect('/profile');
 			Yii::app()->end();

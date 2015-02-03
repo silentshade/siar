@@ -7,8 +7,8 @@
 	<meta name="description" content="<?=CHtml::encode($this->metaDescription);?>">
 	<meta name="keywords" content="<?=CHtml::encode($this->metaKeywords);?>" />
 
-	<link rel="stylesheet" href="/css/own.css">
-	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/own.css?v=1">
+	<link rel="stylesheet" href="/css/style.css?v=1">
 	<link title="Лента RSS" type="application/rss+xml" rel="alternate" href="<?=Yii::app()->getBaseUrl(true);?>/feed"/>
 	<link href="/img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 <!--	<script type="text/javascript" src="/js/script.js"></script>
@@ -208,13 +208,7 @@ Yii::app()->clientScript->scriptMap['jquery.js'] = false;*/
 
 	<!-- JavaScript -->
 	<script src="/js/show-hide.js"></script>
-	<script type="text/javascript">
-	//<![CDATA[
-	advSearch = 'oneword';
-	subSearch = 5;
-	//]]>
-	</script>
-	<script src="/js/ajaxSearch.js"></script>
+	<script src="/js/ajaxSearch.js?v=1"></script>
 	<!-- / JavaScript -->
 	<?=Yii::app()->params['google_analitika'];?>
 </body>

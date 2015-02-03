@@ -20,17 +20,10 @@ var minChars = 3;
 var is_searching = false;
 var liveTimeout = null;
 
+advSearch = 'oneword';
+subSearch = 5;
 
 function activateSearch() {
-  res = ucfg.match(/&opacity=`([^`]*)`/);
-  if (res != null) opacity = parseFloat(res[1]);
-
-  res = ucfg.match(/&liveSearch=`([^`]*)`/);
-  if (res != null) liveSearch = parseInt(res[1]);
-
-  res = ucfg.match(/&minChars=`([^`]*)`/);
-  if (res != null) minChars = parseInt(res[1]);
-
   var asf = $('#ajaxSearch_form');
   var aso = $('#ajaxSearch_output');
   aso.hide();
