@@ -406,7 +406,7 @@ class SiteHelper
 		$mailer->IsHTML(true);
 
 
-		/*if(Yii::app()->params['smtp_on']){
+		if(Yii::app()->params['smtp_on']){
 			$mailer->IsSMTP();
 			$mailer->SMTPDebug = false;
 			$mailer->SMTPAuth = true;
@@ -416,8 +416,8 @@ class SiteHelper
 			$mailer->Host = Yii::app()->params['smtp_host'];
 			$mailer->Username = Yii::app()->params['smtp_user'];//Yii::app()->params['adminEmail'];
 			$mailer->Password = Yii::app()->params['smtp_password'];
-			$mailer->From = Yii::app()->params['smtp_user'];//Yii::app()->params['adminEmail'];
-		}else*/
+			$mailer->From = Yii::app()->params['noreplyEmail'];//Yii::app()->params['adminEmail'];
+		}else
 			$mailer->From = Yii::app()->params['noreplyEmail'];
 
 

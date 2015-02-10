@@ -9735,3 +9735,35 @@ REQUEST_URI=/admin/mailing/update/1
 in /home/developer/web/sia-r.my/public_html/protected/modules/mailing/views/backend/_form.php (36)
 in /home/developer/web/sia-r.my/public_html/protected/modules/mailing/views/backend/update.php (12)
 in /home/developer/web/sia-r.my/public_html/protected/modules/admin/components/CrudAdminModuleController.php (60)
+2015/02/10 14:47:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/favicon.png".' in /home/developer/web/sia-r.my/public_html/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/developer/web/sia-r.my/public_html/framework/web/CWebApplication.php(141): CWebApplication->runController('images/favicon....')
+#1 /home/developer/web/sia-r.my/public_html/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/developer/web/sia-r.my/public_html/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/favicon.png
+---
+2015/02/10 14:47:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/favicon.png".' in /home/developer/web/sia-r.my/public_html/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/developer/web/sia-r.my/public_html/framework/web/CWebApplication.php(141): CWebApplication->runController('images/favicon....')
+#1 /home/developer/web/sia-r.my/public_html/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/developer/web/sia-r.my/public_html/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/favicon.png
+---
+2015/02/10 14:47:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/developer/web/sia-r.my/public_html/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/developer/web/sia-r.my/public_html/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/developer/web/sia-r.my/public_html/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/developer/web/sia-r.my/public_html/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2015/02/10 14:47:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/developer/web/sia-r.my/public_html/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/developer/web/sia-r.my/public_html/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/developer/web/sia-r.my/public_html/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/developer/web/sia-r.my/public_html/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---

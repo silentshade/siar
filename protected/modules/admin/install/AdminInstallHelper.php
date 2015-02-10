@@ -149,28 +149,55 @@ class AdminInstallHelper extends MainInstallHelper {
 		$pages->delete=0;
 		$pages->save(false);
 
-		/*$pages=new Pages();
-		$pages->name='О компании';
-		$pages->alias='about';
-		$pages->delete=0;
-		$pages->save(false);*/
-
-/*		$config=new Config();
-		$config->module='news';
-		$config->param='news_pagination';
-		$config->value=10;
-		$config->default=10;
-		$config->label='Кол-во новостей на странице';
+		$config=new Config();
+		$config->section='Почта';
+		$config->module='';
+		$config->param='smtp_port';
+		$config->value='465';
+		$config->default='465';
+		$config->label='Порт smtp';
 		$config->type='int';
 		$config->save();
 
-		$pages=new Pages();
-		$pages->alias='news';
-		$pages->name='Новости';
-		$pages->controller='news';
-		$pages->visible=1;
-		$pages->delete=0;
-		$pages->save();*/
+		$config=new Config();
+		$config->section='Почта';
+		$config->module='';
+		$config->param='smtp_on';
+		$config->value='1';
+		$config->default='1';
+		$config->label='Включить smtp';
+		$config->type='bool';
+		$config->save();
+
+		$config=new Config();
+		$config->section='Почта';
+		$config->module='';
+		$config->param='smtp_host';
+		$config->value='';
+		$config->default='';
+		$config->label='smtp хост';
+		$config->type='string';
+		$config->save();
+
+		$config=new Config();
+		$config->section='Почта';
+		$config->module='';
+		$config->param='smtp_user';
+		$config->value='';
+		$config->default='';
+		$config->label='smtp пользователь';
+		$config->type='string';
+		$config->save();
+
+		$config=new Config();
+		$config->section='Почта';
+		$config->module='';
+		$config->param='smtp_password';
+		$config->value='';
+		$config->default='';
+		$config->label='smtp пароль';
+		$config->type='string';
+		$config->save();
 	}
 
 	protected function downSql(){
