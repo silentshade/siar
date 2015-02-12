@@ -38,3 +38,5 @@
 	)
 ));
 ?>
+<div class="clearfix"></div><br>
+<a href="/admin/mailing/mail" class="btn pull-right" onclick="if(!confirm('Отправить?')) return false;">Отправить рассылки</a>
