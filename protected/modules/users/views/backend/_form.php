@@ -52,7 +52,6 @@
 
 	<div class="form-actions">
 		<?php $this->widget('bootstrap.widgets.TbButton', array('buttonType'=>'submit','type' => 'primary', 'label'=>($model->isNewRecord ? 'Добавить' : 'Сохранить'))); ?>
-		<?php $this->widget('bootstrap.widgets.TbButton', array('buttonType'=>'link','type' => 'default', 'label'=>'К списку', 'url'=>'/admin/'.Yii::app()->controller->id)); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

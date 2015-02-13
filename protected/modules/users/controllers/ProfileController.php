@@ -33,6 +33,8 @@ class ProfileController extends FrontController
 
 	public function actionIndex()
     {
+		$this->pageTitle='Профиль';
+		
 		$model=$this->loadModel();
 
 		if(isset($_POST[CHtml::modelName($model)])){

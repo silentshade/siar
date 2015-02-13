@@ -77,12 +77,12 @@
 
 		<label class="forms__label">
 			<span class="forms__label-text">Место работы:</span>
-			<?php echo $form->textField($model,'workplace', array('class'=>'forms__input', 'required'=>'required')); ?>
+			<?php echo $form->textField($model,'workplace', array('class'=>'forms__input')); ?>
 		</label>
 
 		<label class="forms__label">
 			<span class="forms__label-text">Занимаемая должность:</span>
-			<?php echo $form->textField($model,'job', array('class'=>'forms__input', 'required'=>'required')); ?>
+			<?php echo $form->textField($model,'job', array('class'=>'forms__input')); ?>
 		</label>
 
 		<label class="forms__label">

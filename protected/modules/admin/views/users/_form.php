@@ -127,7 +127,6 @@ function rebuildImages(){
 
 	<div class="form-actions">
 		<?php $this->widget('bootstrap.widgets.TbButton', array('buttonType'=>'submit','type' => 'primary', 'label'=>'Сохранить')); ?>
-		<?php $this->widget('bootstrap.widgets.TbButton', array('buttonType'=>'link','type' => 'default', 'label'=>'К списку','url'=>'/admin/'.Yii::app()->controller->id)); ?>
 
 	</div>
 

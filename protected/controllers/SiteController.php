@@ -51,18 +51,24 @@ class SiteController extends Controller
 			if(Yii::app()->request->isAjaxRequest)
 				echo $error['message'];
 			else{
-				$model=Pages::model()->findByAttributes(array('alias'=>'404','visible'=>1));
-				if($model){
-					$seo=Seo::model()->findByAttributes(array('entity'=>$model->id,'type'=>3));
-					if($seo){
-						$this->pageTitle=$seo->title;
-						$this->metaDescription=$seo->description;
-						$this->metaKeywords=$seo->keywords;
-					}else{
-						$this->pageTitle=$model->name;
-						$this->metaDescription=$model->name;
-						$this->metaKeywords=$model->name;
+				if($error['code']==404){
+					$model=Pages::model()->findByAttributes(array('alias'=>'404','visible'=>1));
+					if($model){
+						$seo=Seo::model()->findByAttributes(array('entity'=>$model->id,'type'=>3));
+						if($seo){
+							$this->pageTitle=$seo->title;
+							$this->metaDescription=$seo->description;
+							$this->metaKeywords=$seo->keywords;
+						}else{
+							$this->pageTitle=$model->name;
+							$this->metaDescription=$model->name;
+							$this->metaKeywords=$model->name;
+						}
 					}
+				}else{
+					$model= new stdClass();
+					$model->name='Ошибка '.$error['code'];
+					$model->text='<p>Ошибка '.$error['code'].'</p>';
 				}
 
 				$this->render('error', array('model'=>$model));

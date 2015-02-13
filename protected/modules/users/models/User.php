@@ -55,7 +55,7 @@ class User extends MainModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-            array('email, firstname, lastname, midname, workplace, job, birthday', 'required'),
+            array('email, firstname, lastname, midname, birthday', 'required'),
             array('blocked', 'numerical', 'integerOnly'=>true),
             array('login, email, firstname, lastname, midname, workplace, job, address', 'length', 'max'=>255),
             array('password, hash', 'length', 'max'=>32),
@@ -108,7 +108,7 @@ class User extends MainModel
             'lastname' => 'Фамилия',
             'midname' => 'Отчество',
             'workplace' => 'Место работы',
-            'job' => 'Работа',
+            'job' => 'Должность',
             'address' => 'Адрес',
             'birthday' => 'Дата рождения',
             'images' => 'Фотография',

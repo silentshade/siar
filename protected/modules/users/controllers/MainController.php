@@ -85,7 +85,7 @@ class MainController extends FrontController
 					SiteHelper::mail_with_body($model->email, $title, 'registration',array('text'=>$text,'id'=>$model->id),'main','application.modules.users.views.email');
 
 					Yii::app()->user->setFlash('success','Вы успешно зарегистрировались. Проверьте почту');
-					$this->redirect('/request-an-account');
+					$this->redirect('/?login');
 				}
 			}
 		}

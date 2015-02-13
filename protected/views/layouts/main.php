@@ -124,7 +124,11 @@ Yii::app()->clientScript->scriptMap['jquery.js'] = false;*/
 
 								<p class="text-dark-bg">Здравствуйте,</p>
 								<p class="text-dark-bg text-dark-bg--bold"><?=Yii::app()->user->name;?></p>
+								<? if(isset(Yii::app()->user->admin)): ?>
+								<a href="/admin" class="link-dark-bg">В админ панель</a>
+								<? else: ?>
 								<a href="/profile" class="link-dark-bg">Ваши личные данные</a>
+								<? endif; ?>
 								<span class="link-dark-bg link-dark-bg--w-o-hover">|</span>
 								<a href="/logout" class="link-dark-bg">Выйти</a>
 
