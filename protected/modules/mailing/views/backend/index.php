@@ -32,11 +32,19 @@
 		array(
 			'header' => '<span rel=tooltip title="Действие"></span>',
 			'class'=>'EButtonColumnWithClearFilters',
-			'template' => '{update} {delete}',
+			'template' => '{update} {delete} {mail}',
+			'buttons'=>array(
+				'mail'=>array(
+					'label'=>'Отправить',
+					'url'=>'"/admin/mailing/mail?id=".$data->id',
+					'visible'=>'$data->sented==0',
+					'click'=>'function(){ if(!confirm("Отправить?")) return false; }',
+				)
+			),
 			'htmlOptions'=>array('style'=>'text-align:center;')
 		)
 	)
 ));
 ?>
-<div class="clearfix"></div><br>
-<a href="/admin/mailing/mail" class="btn pull-right" onclick="if(!confirm('Отправить?')) return false;">Отправить рассылки</a>
+<!--<div class="clearfix"></div><br>
+<a href="/admin/mailing/mailall" class="btn pull-right" onclick="if(!confirm('Отправить?')) return false;">Отправить рассылки</a>-->
